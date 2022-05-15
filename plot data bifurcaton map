@@ -1,0 +1,24 @@
+from turtle import pd
+from matplotlib import pyplot as plt
+import numpy as np
+from scipy.stats import linregress
+import pandas as pd
+from scipy.signal import find_peaks
+from pick_everage import maximum_filtering
+
+
+
+def plot_bifurcation_map():
+    bifurcation_map_points = rf'/Users/odaiagerstl/pythonProject2/pythonProject/pythonProject/secend_part/vectors of bifurcation map/11.5.22-2_circuits_no_mashran.csv'
+    df = pd.read_csv(bifurcation_map_points)
+    voltages, peaks = df["voltages"], df["peaks"]
+    plt.plot(voltages, peaks, '.', markersize=1)
+    plt.xlabel('Input Voltage [volt]')
+    plt.ylabel('Diode Voltage Peaks of Central Circuits [volt]')
+    plt.title('Bifurcation Map of Two Circuits')
+    plt.xticks(list(range(11)))
+    plt.show()
+
+
+if __name__ == '__main__':
+    plot_bifurcation_map()
